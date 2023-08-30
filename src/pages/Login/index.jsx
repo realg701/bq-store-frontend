@@ -36,7 +36,7 @@ export default function Login() {
 
   const handleSubmit = async () => {
     const userData = { userName, passWord };
-    const response = await fetch("http://localhost:9999/users/login", {
+    const response = await fetch("https://fancy-trousers-ox.cyclic.app/users/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
