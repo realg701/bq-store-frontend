@@ -8,7 +8,7 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const fetchProducts = async () => {
     setLoading(true);
-    const response = await fetch("http://localhost:9999/products/all");
+    const response = await fetch("https://fancy-trousers-ox.cyclic.app/products/all");
     const data = await response.json();
     setProducts(data.products);
     setLoading(false);
