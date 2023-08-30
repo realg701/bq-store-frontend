@@ -20,7 +20,7 @@ export default function Product() {
   const [loading, setLoading] = useState(false);
   const fetchSingleProduct = async () => {
     setLoading(true);
-    const response = await fetch(`http://localhost:9999/products/${id}`);
+    const response = await fetch(`https://fancy-trousers-ox.cyclic.app/${id}`);
     const data = await response.json();
     setSingleProduct(data.product);
     setLoading(false);
