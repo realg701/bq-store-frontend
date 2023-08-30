@@ -29,7 +29,9 @@ export default function EditProduct() {
   const { id } = useParams();
   const fetchSingleProduct = async () => {
     setLoading(true);
-    const response = await fetch(`http://localhost:9999/products/${id}`);
+    const response = await fetch(
+      `https://fancy-trousers-ox.cyclic.app/products/${id}`
+    );
     const data = await response.json();
     setSingleProduct(data.product);
     setLoading(false);
@@ -46,16 +48,19 @@ export default function EditProduct() {
     const file = e.target.files[0];
     const formData = new FormData();
     formData.append("image", file);
-    const response = await fetch("http://localhost:9999/upload", {
-      method: "POST",
-      body: formData,
-    });
+    const response = await fetch(
+      "https://fancy-trousers-ox.cyclic.app/upload",
+      {
+        method: "POST",
+        body: formData,
+      }
+    );
     console.log("res", response);
   };
 
   const handleSubmit = async () => {
     const productData = { ...singleProduct };
-    const response = await fetch(`http://localhost:9999/products/edit/${id}`, {
+    const response = await fetch(`https://fancy-trousers-ox.cyclic.app/products/edit/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

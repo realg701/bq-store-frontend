@@ -56,10 +56,13 @@ export default function AddProduct() {
     const file = e.target.files[0];
     const formData = new FormData();
     formData.append("image", file);
-    const response = await fetch("http://localhost:9999/upload", {
-      method: "POST",
-      body: formData,
-    });
+    const response = await fetch(
+      "https://fancy-trousers-ox.cyclic.app/upload",
+      {
+        method: "POST",
+        body: formData,
+      }
+    );
     console.log("res", response);
   };
 
@@ -98,14 +101,17 @@ export default function AddProduct() {
       return;
     }
 
-    const response = await fetch("http://localhost:9999/products/add", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify(productData),
-    });
+    const response = await fetch(
+      "https://fancy-trousers-ox.cyclic.app/products/add",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(productData),
+      }
+    );
     console.log("Response", response);
   };
 

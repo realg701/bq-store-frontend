@@ -27,12 +27,15 @@ export default function Product() {
   };
 
   const handleDelete = async () => {
-    const response = await fetch(`http://localhost:9999/products/${id}`, {
-      method: "DELETE",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const response = await fetch(
+      `https://fancy-trousers-ox.cyclic.app/products/${id}`,
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
     const data = await response.json();
     console.log("data", data);
     navigate("/");
